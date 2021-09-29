@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<style media="screen">
+  body{
+    background: url("https://wallpaperaccess.com/full/2454628.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h1{
+    font-size: 60px;
+    color: white;
+    font-family: Alegreya Sans;
+  }
+  label{
+    font-size: 30px;
+    margin: 50px 0 50px 0;
+    color: white;
+    font-family: Quicksand;
+  }
+  input{
+    width: 800px;
+    height: 50px;
+    font-family: Quicksand;
+    font-size: 25px;
+    margin-left: 40px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  input:focus,button:focus{
+    outline: none;
+  }
+  button{
+    height: 50px;
+    width: 160px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+    color: #06013d;
+    border-radius: 10px;
+    position: relative;
+    background-image: linear-gradient(to right, #00C9FF 0%, #92FE9D  51%, #00C9FF  100%);
+  }
+  .lang{
+    font-size: 25px;
+  }
+  select{
+    font-size: 20px;
+    margin: 0px 20px 50px 0;
+    font-family: Quicksand;
+    width: 150px;
+  }
+</style>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <title>Text to Speech Convertor</title>
+  </head>
+  <body>
+    <h1>Text &nbsp;to &nbsp;Speech &nbsp;Convertor</h1>
+    <br><br><br>
+    <form class="form1">
+      <label for="language" class="lang">Choose a language : </label>
+        <select id="language" name="language">
+          <option value="alb" id="alb">Albanian</option>
+          <option value="eng" id="eng">English</option>
+          <option value="fre" id="fre">French</option>
+          <option value="spani" id="spani">Spanish</option>
+          <option value="ger" id="ger">German</option>
+        </select>
+      <br>
+      <label>Enter your text in <span id="langu">English</span> here</label><br>
+      <br><br>
+      <input type="text" id="alpha" value="">
+      <br><br>
+      <button type="button" name="button" onclick="convert()"><b>Speak It</b></button>
+      <br>
+    </form>
+    <script type="text/javascript">
+      function convert()
+      {
+        var s=document.getElementById('language');
+        let msg = document.getElementById("alpha").value;
+        var t=document.querySelector('span');
+        let speech = new SpeechSynthesisUtterance();
+        if(s.value==="alb")
+        {
+          t.innerHTML='Albanian'
+          speech.lang = "sq-AL";
+          speech.text = msg;
+          speech.text = msg;
+        }
+        if(s.value==="eng")
+        {
+          t.innerHTML='English'
+          speech.lang = "en-US";
+          speech.text = msg;
+          speech.text = msg;
+        }
+        else if(s.value==="fre")
+        {
+          t.innerHTML='French'
+          speech.lang = "fr-FR";
+          speech.text = msg;
+          speech.text = msg;
+        }
+        else if(s.value==="spani")
+        {
+          t.innerHTML='Spanish'
+          speech.lang = "es-ES";
+          speech.text = msg;
+          speech.text = msg;
+        }
+        else if(s.value==="ger")
+        {
+          t.innerHTML='German'
+          speech.lang = "de-DE";
+          speech.text = msg;
+          speech.text = msg;
+        }
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+      }
+    </script>
+  </body>
+</html>
